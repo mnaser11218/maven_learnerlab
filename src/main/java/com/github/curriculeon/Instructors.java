@@ -1,11 +1,15 @@
 package com.github.curriculeon;
 
-public class Instructors extends People{
+public final class Instructors extends People{
+    private static Instructors INSTANCE  = new Instructors();
+    private Instructors() {
+        this.add(new Instructor(1l, "mohammed"));
+        this.add(new Instructor(2l, "ayad"));
+        this.add(new Instructor(3l, "naser"));
 
-    public Instructors() {
     }
-    public Instructors getInstance(){
-        return this;
+    public static Instructors getInstance(){
+        return INSTANCE;
     }
 
 }
