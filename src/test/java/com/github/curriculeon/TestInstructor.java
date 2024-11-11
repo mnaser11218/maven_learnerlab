@@ -26,7 +26,6 @@ public class TestInstructor {
         //when
         boolean isInstance = instructor instanceof Person;
 
-
         //then
         Assert.assertTrue(isInstance);
 
@@ -43,10 +42,8 @@ public class TestInstructor {
         instructor.teach(student, studyTime);
         Double addedTime = initialTime + studyTime;
 
-
         //then
         Assert.assertEquals(student.getTotalStudyTime(), addedTime);
-
     }
 
     @Test
@@ -54,11 +51,12 @@ public class TestInstructor {
         //given
         Instructor instructor = new Instructor();
         Student[] students = new Student[]{new Student(), new Student()};
+        Student firstStudent = students[0];
         //when
         Double lectureTime = 50.0;
         Double lectureTimeForStudent = lectureTime / students.length;
+        Assert.assertNotEquals(firstStudent.getTotalStudyTime(), lectureTimeForStudent);
         instructor.lecture(students, lectureTime);
-        Student firstStudent = students[0];
 
 
         //then
