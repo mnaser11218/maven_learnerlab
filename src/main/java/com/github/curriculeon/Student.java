@@ -11,6 +11,10 @@ public class Student extends Person implements Learner{
         super(id, name);
     }
 
+    public Student() {
+
+    }
+
     @Override
     public void learn(Double hours) {
         totalStudyTime+=hours;
