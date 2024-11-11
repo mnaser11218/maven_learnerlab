@@ -1,11 +1,11 @@
 package com.github.curriculeon;
 
 public final class Students extends People{
-    public static Students INSTANCE = new Students();
+    private static Students INSTANCE = new Students();
     private Students() {
-        INSTANCE.add(new Student(5l, "mohammed"));
-        INSTANCE.add(new Student(9l, "naser"));
-        INSTANCE.add(new Student(4l, "ayad"));
+        this.add(new Student(5l, "mohammed"));
+        this.add(new Student(9l, "naser"));
+        this.add(new Student(4l, "ayad"));
 
     }
 
