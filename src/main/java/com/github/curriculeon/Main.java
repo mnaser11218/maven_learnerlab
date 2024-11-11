@@ -5,7 +5,7 @@ public class Main {
         Employee employee = Employee.LEON;
         Employee employee2 = Employee.MOHAMMED;
         System.out.println(employee.getId() + employee.getName());
-        System.out.println(employee2.getName()f);
+        System.out.println(employee2.getName());
 
     }
 }
