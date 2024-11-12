@@ -14,14 +14,12 @@ public enum Classroom {
         teacher.lecture(personArray, numberOfHours);
     }
     public void hostLecture(Long id, Double numberOfHours){
-    Person person = Instructors.getInstance().findById(id);
-    Teacher teacher = (Teacher) person;
+    Teacher teacher = Instructors.getInstance().findById(id);
     hostLecture(teacher, numberOfHours);
     }
     public Map<Student, Double> getStudyMap(){
         Map<Student, Double> map = new HashMap<>();
-        for(Person person : Students.getInstance().toArray()){
-            Student student = (Student) person;
+        for(Student student : Students.getInstance().toArray()){
             double numberOfHours = student.getTotalStudyTime();
             map.put(student, numberOfHours);
         }
