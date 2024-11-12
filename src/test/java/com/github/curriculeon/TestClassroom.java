@@ -10,7 +10,8 @@ public class TestClassroom {
     public void testHostLecture(){
     // given
     Classroom classroom = Classroom.INSTANCE;
-    Teacher teacher = (Teacher) Instructors.getInstance().findById(1l);
+    //Teacher teacher = (Teacher) Instructors.getInstance().findById(1l);
+    Educator teacher = Educator.AYAD;
     double numberOfHours = Students.getInstance().count();
     double hoursPerStudent = Students.getInstance().count() / numberOfHours;
     Map<Student, Double>preStudyMap = classroom.getStudyMap();
