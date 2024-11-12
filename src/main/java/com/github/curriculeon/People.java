@@ -2,25 +2,26 @@ package com.github.curriculeon;
 
 import java.util.*;
 
-public class People implements  Iterable<Person>{
-    private List<Person> personList = new ArrayList<>();
+abstract class People <PersonType extends Person> implements  Iterable<PersonType>{
+    //protected indicates that only subclasses have access to this field
+    protected List<PersonType> personList = new ArrayList<>();
     public People() {
     }
-    public void add(Person person){
+    public void add(PersonType person){
         personList.add(person);
     }
-    public Person findById(Long id){
-        for(Person person : personList){
-            if(person.getId().equals(id)){
+    public PersonType findById(Long id){
+        for(PersonType person : personList){
+            if(person.getId() == id){
                 return person;
             }
         }
         return null;
     }
 
-    public boolean contains(Person person){
+    public boolean contains(PersonType person){
         boolean results = false;
-        for(Person ele: personList){
+        for(PersonType ele: personList){
             if(ele.equals(person)){
                 results = true;
                 break;
@@ -29,7 +30,7 @@ public class People implements  Iterable<Person>{
 
         return results;
     }
-    public void remove(Person person){
+    public void remove(PersonType person){
   personList.remove(person);
     }
 
@@ -43,13 +44,11 @@ public class People implements  Iterable<Person>{
     public Integer count(){
        return this.personList.size();
     }
-    public Person[] toArray(){
-        return this.personList.toArray(new Person[0]);
-    }
+    abstract public PersonType[] toArray();
 
 
     @Override
-    public Iterator<Person> iterator() {
+    public Iterator<PersonType> iterator() {
         return personList.iterator();
     }
 }
