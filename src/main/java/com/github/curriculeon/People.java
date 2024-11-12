@@ -3,7 +3,8 @@ package com.github.curriculeon;
 import java.util.*;
 
 abstract class People <PersonType extends Person> implements  Iterable<PersonType>{
-    private List<PersonType> personList = new ArrayList<>();
+    //protected indicates that only subclasses have access to this field
+    protected List<PersonType> personList = new ArrayList<>();
     public People() {
     }
     public void add(PersonType person){
@@ -43,7 +44,7 @@ abstract class People <PersonType extends Person> implements  Iterable<PersonTyp
     public Integer count(){
        return this.personList.size();
     }
-    abstract public Person[] toArray();
+    abstract public PersonType[] toArray();
 
 
     @Override
