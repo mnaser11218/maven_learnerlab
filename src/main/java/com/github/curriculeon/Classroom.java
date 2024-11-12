@@ -10,15 +10,8 @@ public enum Classroom {
 
 
     public void hostLecture(Teacher teacher, Double numberOfHours){
-        Person[] personArray = students.toArray();
-        Student[] studentArray = new Student[personArray.length];
-
-        for(int i=0; i< personArray.length; i++){
-            Person person = personArray[i];
-            Student student = (Student) person;
-            studentArray[i] = student;
-        }
-        teacher.lecture(studentArray, numberOfHours);
+        Student[] personArray = students.toArray();
+        teacher.lecture(personArray, numberOfHours);
     }
     public void hostLecture(Long id, Double numberOfHours){
     Person person = Instructors.getInstance().findById(id);
